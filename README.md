@@ -68,7 +68,7 @@ There is an example of a **very** diverse group of blocked sites that are monito
 
 You could set up your own group using syntax:
 
-`[<url>,<regex>]` where `url` is an adress and regex is Python re regex rule to check on the cite. Or `[<url>]` if you don't need regex check
+`[<url>,<regex>]` where `url` is an adress and `regex` is Python re regular expression rule to check on the site body. Currently it works only on the first 500 kb of the body. Or `[<url>]` if you don't need regex check
 
 6. Run Consumer by running `pipenv run consumer.py`
 7. Run Producer by running `pipenv run producer.py`
