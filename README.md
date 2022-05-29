@@ -46,19 +46,30 @@ pip install --user pipenv
 ```
 pipenv install
 ```
-3. Download yur Kafka access keys (also - web interface) and put them into the directory `\resources\certificates`. Or you could use a directory of your choice and specify it in `\resources\certificates\kafka_certificates.json`.
+3. Download yur Kafka access keys (also - web interface) and put them into the directory `\resources\certificates`. Or you could use a directory of your choice and specify it in `\resources\kafka_certificates.json`.
 
 
-`service.key` - Access Key
-`service.cert` - Access Certificate
-`ca.pem` -  CA Certificate
+- `service.key` - Access Key
+- `service.cert` - Access Certificate
+- `ca.pem` -  CA Certificate
 
-And enter your Kafaka service uri in `\resources\certificates\kafka_certificates.json`
+And enter your Kafaka service uri in `\resources\kafka_certificates.json`
 
-4. Enter your PostgreSQL credentials to  `\resources\certificates\db_access_data.json`
-`user` - PostgreSQL User name, by default avnadmin (if the SQL frome above is not modified - that's username you need)
-`password` - PostgreSQL password
-`host` - your Aiven PostgreSQL address (will look like ******.aivencloud.com",
-`port` - your Aiven PostgreSQL port. The default is `27160` but it is advised to check.
+4. Enter your PostgreSQL credentials to  `\resources\db_access_data.json`
+- `user` - PostgreSQL User name, by default avnadmin (if the SQL frome above is not modified - that's username you need)
+- `password` - PostgreSQL password
+- `host` - your Aiven PostgreSQL address (will look like ******.aivencloud.com",
+- `port` - your Aiven PostgreSQL port. The default is `27160` but it is advised to check.
 
 5. Look through website lists 
+Websites to be checked are stored in `\resources\websites.json`
+There is an example of a **very** diverse group of blocked sites that are monitored by Citizen Lab -  https://github.com/citizenlab/test-lists
+
+
+You could set up your own group using syntax:
+
+`[<url>,<regex>]` where `url` is an adress and regex is Python re regex rule to check on the cite. Or `[<url>]` if you don't need regex check
+
+6. Run Consumer by running `pipenv run consumer.py`
+7. Run Producer by running `pipenv run producer.py`
+8. 
